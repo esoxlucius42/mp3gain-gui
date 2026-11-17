@@ -166,8 +166,10 @@ class MainWindow(QMainWindow):
         self.table.setHorizontalHeaderLabels(["Absolute path", "Volume (dB)", "Clipping", "Gain (dB)"])
         self.table.setAlternatingRowColors(True)
         self.table.setSortingEnabled(True)
-        self.table.horizontalHeader().setStretchLastSection(True)
-        self.table.horizontalHeader().setSectionResizeMode(0, self.table.horizontalHeader().ResizeMode.Stretch)
+        header = self.table.horizontalHeader()
+        header.setSectionResizeMode(0, header.ResizeMode.Stretch)
+        for column in range(1, self.table.columnCount()):
+            header.setSectionResizeMode(column, header.ResizeMode.ResizeToContents)
 
         layout = QVBoxLayout()
         layout.addLayout(controls)
