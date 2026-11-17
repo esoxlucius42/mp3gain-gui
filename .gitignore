@@ -1,0 +1,7 @@
+*.o
+mp3gain
+mp3gain.zip
+__pycache__/
+*.py[cod]
+core
+core.*
